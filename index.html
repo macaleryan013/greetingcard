@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teachers' Day!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            font-family: "Poppins", sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+
+
+
+
+        h1 {
+            font-size: 3em;
+            color: #2b2b2b;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(16px, 4vw, 40px);
+            line-height: 1.15;
+        }
+
+
+        h1::before,
+        h1::after {
+            content: "";
+            display: inline-block;
+            width: clamp(80px, 18vw, 220px);
+            height: clamp(80px, 18vw, 220px);
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+            flex-shrink: 0;
+        }
+
+        h1::before {
+            background-image: url('./Images/1.jpg');
+        }
+
+        h1::after {
+            background-image: url('./Images/2.jpg');
+        }
+
+        h2 {
+            color: #444;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .heart {
+            color: red;
+            font-size: 2em;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff5e57;
+            top: 0;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        button {
+            margin-top: 40px;
+            background-color: #2b2b2b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #f76c6c;
+            transform: scale(1.05);
+        }
+
+     
+     @media (max-width: 600px) {
+         body {
+             padding: 16px;
+             height: auto;
+             min-height: 100vh;
+             overflow: auto;
+         }
+
+         h1 {
+             font-size: 2em;
+             flex-direction: column;
+             gap: 12px;
+         }
+
+         h1::before,
+         h1::after {
+             width: 40vw;
+             height: 40vw;
+             border-radius: 12px;
+             box-shadow: 0 8px 18px rgba(0,0,0,.16);
+         }
+
+         h2 {
+             font-size: 1em;
+             padding: 0 8px;
+         }
+
+         button {
+             width: 100%;
+             max-width: 320px;
+         }
+     }
+    </style>
+</head>
+
+<body>
+    <h1>🎉 Happy Teachers’ Day! 🧑‍🏫<br> Sir. Jaymart Maala</h1>
+    <h2>Thank you for your wisdom, patience, and guidance. <br> From BSIS - 2A<span class="heart">❤️</span></h2>
+    <button onclick="launchConfetti()">Celebrate!</button>
+
+    <script>
+         window.addEventListener('load', function () {
+             alert('For best experience, please view this site on a desktop or laptop.');
+         });
+
+        function launchConfetti() {
+            for (let i = 0; i < 200; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                document.body.appendChild(confetti);
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 60%)`;
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.opacity = Math.random();
+                confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + 'px';
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+
+            setTimeout(() => {
+                window.location.href = 'students.html';
+            }, 1800); // for the confetti to be visible bago mag loading sa next page
+        }
+        
+
+
+    </script>
+
+</body>
+
+</html>
