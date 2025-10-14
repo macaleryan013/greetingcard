@@ -108,7 +108,7 @@
       background: linear-gradient(135deg, rgba(255, 107, 107, .55), rgba(247, 183, 51, .55), rgba(69, 170, 242, .55));
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
-              mask-composite: exclude;
+      mask-composite: exclude;
       pointer-events: none;
       opacity: .95;
       transition: opacity .25s ease, filter .25s ease;
@@ -345,7 +345,7 @@
       <div class="content">
         <div class="name">James Harvey Javier</div>
         <div class="greet">Happy Teacher's Day po! we appreciate all your patience and guidance towards us, thank you so
-          much poo!!! <33.</div>
+          much poo!!! <33.< /div>
         </div>
       </div>
 
@@ -628,7 +628,7 @@
           <div class="greet">Happy teachers’ day sayo sir. And congrats kase soon to be a father ka na sir. God bless
             you and ipagpatuloy mo pa maging inspirasyon saming mga estudyante mo. Nawa’y lahat ng mga magagandang bagay
             sa buhay ay makamit mo at patuloy ka pang pagpalain ng Diyos. Mahal ka naming mga studyante mo. And sana wag
-            ka na manggigisa sa first day :<</div>
+            ka na manggigisa sa first day :<< /div>
           </div>
         </div>
 
@@ -664,7 +664,9 @@
           <img class="photo" src="./Images/Alexandra Roch Garcia.png" alt="Alexandra Roch Garcia" loading="lazy">
           <div class="content">
             <div class="name">Alexandra Roch Garcia</div>
-            <div class="greet"></div>
+            <div class="greet">Maligayang Araw ng mga Guro, Sir Jaymart Maala!
+              Maraming salamat po sa lahat ng pagtuturo, pag-intindi, at paggabay ninyo sa amin. Kahit minsan po
+              matitigas ulo namin, patuloy pa rin kayong nagtuturo nang may ngiti.</div>
           </div>
         </div>
 
@@ -672,7 +674,9 @@
           <img class="photo" src="./Images/Denmark VIbal.jpg" alt="Denmark Vibal" loading="lazy">
           <div class="content">
             <div class="name">Denmark Vibal</div>
-            <div class="greet"></div>
+            <div class="greet">Happy Teachers’ Day po, Sir Jaymart!
+              Salamat po sa inyong pagtitiyaga at sa palaging pagbibigay inspirasyon sa amin. Dahil po sa inyo, mas
+              nagkakaroon kami ng gana sa pag-aaral. Mabuhay po kayo, Sir!</div>
           </div>
         </div>
 
@@ -680,7 +684,9 @@
           <img class="photo" src="./Images/Francis Alvarez.jpg" alt="Francis Alvarez" loading="lazy">
           <div class="content">
             <div class="name">Alvarez Francis</div>
-            <div class="greet"></div>
+            <div class="greet">Sir Jaymart Maala, salamat po sa lahat ng oras, pagod, at pag-aaruga ninyo sa amin bilang
+              mga estudyante.
+              Hindi lang po kayo guro, kundi parang pangalawang magulang namin sa school. Happy Teacher’s Day po.</div>
           </div>
         </div>
 
@@ -688,7 +694,8 @@
           <img class="photo" src="./Images/John Benedict Cruz.jpeg" alt="John Benedict Cruz" loading="lazy">
           <div class="content">
             <div class="name">John Benedict Cruz</div>
-            <div class="greet">Happy Teachers day po Sir Jay! Thankyou po sa walang sawang pagtuturo and sana po hindi ka mag sawa mag pasensya saming mga laging late</div>
+            <div class="greet">Happy Teachers day po Sir Jay! Thankyou po sa walang sawang pagtuturo and sana po hindi
+              ka mag sawa mag pasensya saming mga laging late</div>
           </div>
         </div>
 
@@ -696,7 +703,8 @@
           <img class="photo" src="./Images/Mark Stiphen Marquez.png" alt="" loading="lazy">
           <div class="content">
             <div class="name">Mark Stiphene Marquez</div>
-            <div class="greet"></div>
+            <div class="greet">Happy Teachers’ Day po, Sir Jaymart Maala!
+              Maraming salamat po sa lahat ng effort at tiyaga ninyo sa pagtuturo sa amin.</div>
           </div>
         </div>
 
@@ -704,7 +712,10 @@
           <img class="photo" src="./Images/Ryan Macale.jpeg" alt="Ryan Macale" loading="lazy">
           <div class="content">
             <div class="name">Ryan Macale</div>
-            <div class="greet">I just want to thankyou po sir sa mga knowledge po na binabahagi mo samin and lalo narin po sa pagiging mabait na teacher/advicer ng BSIS 2A. Ikaw po ang laging nandyan sa tuwing may mga kaylangan ang BSIS 2A kaya naman po isa kang tunay na father figure para saamin. Sana po ay lagi kang maging ligtas and I wish you all the best po sir Jay. HAPPY TEACHERS DAY PO!!💖</div>
+            <div class="greet">I just want to thankyou po sir sa mga knowledge po na binabahagi mo samin and lalo narin
+              po sa pagiging mabait na teacher/advicer ng BSIS 2A. Ikaw po ang laging nandyan sa tuwing may mga
+              kaylangan ang BSIS 2A kaya naman po isa kang tunay na father figure para saamin. Sana po ay lagi kang
+              maging ligtas and I wish you all the best po sir Jay. HAPPY TEACHERS DAY PO!!💖</div>
           </div>
         </div>
 
@@ -722,17 +733,15 @@
             const aName = (a.querySelector('.name')?.textContent || '').trim();
             const bName = (b.querySelector('.name')?.textContent || '').trim();
 
-            // put empty names at the end
+            // put empty names
             if (!aName && bName) return 1;
             if (aName && !bName) return -1;
             return aName.localeCompare(bName, undefined, { sensitivity: 'base' });
           });
 
-          // re-append in sorted order
           cards.forEach(card => grid.appendChild(card));
         });
       </script>
 </body>
-
 
 </html>
