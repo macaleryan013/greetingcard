@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSIS-2A Greetings for Sir Jaymart Maala</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(120deg, #ffe8ef, #fff5d6, #e1f3ff);
+      background-size: 200% 200%;
+      animation: bgShift 12s ease-in-out infinite;
+      font-family: "Poppins", sans-serif;
+      color: #2b2b2b;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeIn 1.2s ease-in-out;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.6em;
+      background: linear-gradient(90deg, #ff6b6b, #f7b733, #45aaf2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.5px;
+    }
+
+    p.sub {
+      margin: 6px 0 0 0;
+      color: #555;
+    }
+
+    p.sub.small {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      align-items: stretch;
+      max-width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rule {
+      margin-top: 14px;
+      border: none;
+      border-top: 1px solid #e6e6e6;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease;
+      border: 1px solid transparent;
+      animation: riseIn .45s ease both;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 107, 107, .35), rgba(247, 183, 51, .35), rgba(69, 170, 242, .35));
+      z-index: -1;
+      filter: blur(10px);
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
+      border-color: transparent;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255, 107, 107, .55), rgba(247, 183, 51, .55), rgba(69, 170, 242, .55));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      opacity: .95;
+      transition: opacity .25s ease, filter .25s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+      filter: brightness(.8);
+    }
+
+    .photo {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: #eee;
+      border-bottom: 1px solid #f0f0f0;
+      background-color: #fafafa;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      transition: transform .6s cubic-bezier(.22, 1, .36, 1), filter .6s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .card:hover .photo {
+      transform: scale(0.98);
+      filter: saturate(1.02);
+    }
+
+    .content {
+      padding: 16px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 60%, #fcfcfc 100%);
+    }
+
+    .name {
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #1e1e1e;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .name::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff6b6b, #f7b733, #45aaf2);
+      transition: width .4s ease;
+      border-radius: 2px;
+    }
+
+    .card:hover .name::after {
+      width: 28px;
+    }
+
+    .greet {
+      color: #404040;
+      line-height: 1.5;
+      font-size: .96em;
+      background: linear-gradient(180deg, #fff8f5 0%, #fff7f2 70%, #fff4ee 100%);
+      border-left: 4px solid #ffb29e;
+      padding: 0 12px;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px #ffe1d8, 0 6px 14px rgba(255, 178, 158, 0.15);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transform: translateY(6px);
+      transition: opacity .35s ease, max-height .50s ease, padding .35s ease, transform .35s ease;
+      position: relative;
+    }
+
+    .card:hover .greet {
+      opacity: 1;
+      max-height: 500px;
+      padding: 10px 12px;
+      transform: translateY(0);
+    }
+
+    img {
+      border-radius: 10px;
+    }
+
+    .greet::before {
+      content: "\201C";
+      /* “ */
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      font-size: 22px;
+      line-height: 1;
+      color: #ffb29e;
+      opacity: .45;
+      pointer-events: none;
+    }
+
+    .back {
+      position: fixed;
+      left: 16px;
+      top: 16px;
+      background: #2b2b2b;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    .back:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+      background: #3a3a3a;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes bgShift {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    .grid .card:nth-child(3n+1) {
+      animation-delay: .05s
+    }
+
+    .grid .card:nth-child(3n+2) {
+      animation-delay: .12s
+    }
+
+    .grid .card:nth-child(3n) {
+      animation-delay: .18s
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="back" onclick="window.location.href='index.html'">← Back</button>
+
+  <div class="header">
+    <h1>BSIS-2A Greetings</h1>
+    <p class="sub">With gratitude to Sir Jaymart Maala — Happy Teachers’ Day! 🧑‍🏫❤️</p>
+    <p class="sub"></p>
+    <p class="sub small"></p>
+    <hr class="rule">
+  </div>
+
+  <div class="grid" id="studentsGrid">
+    <div class="card">
+      <img class="photo" src="./Images/Dela Cruz Miaka Kirsten.png" alt=" Miaka Dela Cruz" loading="lazy">
+      <div class="content">
+        <div class="name">Miaka Kirsten Dela Cruz </div>
+        <div class="greet">Happy Teacher’s Day! Thank you for being just a teacher; like a second father. Love u, Dad.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="./Images/Geselle Historillo.jpg" alt="Geselle Historillo" loading="lazy">
+      <div class="content">
+        <div class="name">Geselle Historillo</div>
+        <div class="greet">Happy Teacher’s Day, Sir Jay! Thank you for your kindness. We’ll cherish every moment with
+          you.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="./Images/Alliana De Borja.png" alt="Alliana De Borja" loading="lazy">
+      <div class="content">
+        <div class="name">Alliana De Borja</div>
+        <div class="greet">Happy Teachers' Day, Sir Jay! Just wanted to thank you for all your hard work.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="./Images/Melody San Mateo.jpg" alt="Melody San Mateo" loading="lazy">
+      <div class="content">
+        <div class="name">Melody San Mateo</div>
+        <div class="greet">Happy Teacher's Day po, Sir! Thank you for the memories we shared, stay healthy and be kind
+          po all the time, good luck to your journey po!</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="./Images/Jonelle Marion Genciane.jpeg" alt="Jonelle Marion Genciane" loading="lazy">
+      <div class="content">
+        <div class="name">Jonelle Marion Genciane</div>
+        <div class="greet">Happy Teachers’ Day po Sir! Thank you para sa pagbigay ng lahat ng effort mo para matuto po
+          kami. We hope na ma-enjoy mo po yung araw na ito!</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="./Images/James Harvey Javier.jpg" alt="James Harvey Javier" loading="lazy">
+      <div class="content">
+        <div class="name">James Harvey Javier</div>
+        <div class="greet">Happy Teacher's Day po! we appreciate all your patience and guidance towards us, thank you so
+          much poo!!! <33.< /div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Leonalyn Jose.png" alt="Leonalyn Jose" loading="lazy">
+        <div class="content">
+          <div class="name">Leonalyn Jose</div>
+          <div class="greet">Happy Teacher's Day Sir Jaymart, una po sa lahat nawa'y magenjoy kayo sa araw na to and
+            maraming maraming salamat po sa pag guide samin bilang mga anak mo para mas matuto kaming mag code nawa'y
+            lahat po ng aming mga gift sayo ay enjoyin nyo, Happy Teacher's Day po ulit!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Angelo Cruz.jpg" alt="Angelo Cruz" loading="lazy">
+        <div class="content">
+          <div class="name">Angelo Cruz</div>
+          <div class="greet">Happy Teacher’s Day po sir! You’re not just a teacher,but a mentor, a role model,and a
+            friend.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Roselle Anne Sotto.jpg" alt="Roselle Anne Sotto" loading="lazy">
+        <div class="content">
+          <div class="name">Roselle Anne Sotto</div>
+          <div class="greet">" Happy Teacher's Day po Sir Jaymart! We appreciate you po for not just being our adviser
+            but a father figure that always supports us and takes care of us. Thank you po at ikaw ang aming adviser!!!
+            We love you Sir! Happy Teacher's Day and God Bless!! “</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Gian Carlo Bautista.jpg" alt="Gian Carlo Bautista" loading="lazy">
+        <div class="content">
+          <div class="name">Gian Carlo Bautista</div>
+          <div class="greet">”Happy Teacher's day Sir. Jaymark, We're very grateful po sa guidance and support ninyo
+            sa’min!“</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Noriel Jermaine Antonio.png" alt="Noriel Jermaine Antonio" loading="lazy">
+        <div class="content">
+          <div class="name">Noriel Jermaine Antonio</div>
+          <div class="greet">“Happy Teacher's Day po Sir Jay, we all are so grateful to have you po as our teacher and
+            adviser. Thank you for guiding us, god bless" </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Alexa Villamil.jpg" alt="Alexa Villamil" loading="lazy">
+        <div class="content">
+          <div class="name">Alexa Villamil</div>
+          <div class="greet">Happy Teachers' Day, sir. Thank you for being a good teacher to us! I hope you are always
+            safe and healthy!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Ryoichi Ohtsuka.jpeg" alt="Ryoichi Ohtsuka" loading="lazy">
+        <div class="content">
+          <div class="name">Ryoichi Ohtsuka</div>
+          <div class="greet">Happy
+            Teacher’s day po sirrr, Thank you po sa araw-araw na pagpapasaya at pagkakaroon ng mahabang pasensya sa amin
+            hehe. Maraming salamat din po at kayo ang naging adviser namin, Marami po talaga kaming natutunan sainyo
+            hehe. You’re One of the Great Teachers of All Time hehe. We Love You Sir, Take care always po, Kung gaano ka
+            po andito para sa’amin, Ganon din po kami para sa’inyo
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Alvin John Aldaba.jpg" alt="Alvin John Aldaba" loading="lazy">
+        <div class="content">
+          <div class="name">Alvin John Aldaba</div>
+          <div class="greet">Happy Teachers’ Day Sir Jay! Thank you for being such a wonderful teacher who always makes
+            learning exciting and meaningful. </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/William Kirby Dimagiba.png" alt="William Kirby Dimagiba" loading="lazy">
+        <div class="content">
+          <div class="name">William Kirby Dimagiba</div>
+          <div class="greet">Happy Teachers day po sir Jay, we're grateful to have you as our advicer, thank you and
+            take care always po.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/FRANCIS, LARA JEAN.jpg" alt="Francis, Lara Jean" loading="lazy">
+        <div class="content">
+          <div class="name">Lara Jean Francis</div>
+          <div class="greet">Happy Teacher’s Day po, Sir. Jay! Thank you po sa pagiging supportive adviser ng 2A. Kahit
+            na strict ka po sa’min nung first year hehehe turns out you'll become our very supportive adviser pala
+            ngayong 2nd year namin. Thank you for being our kakampi and pahinga sa subj mo po kasi hindi mo kami
+            pinepressure. Ingat po always. BSIS 2A loves you po!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Francheska Patricia Dg Pati Cruz.jpg" alt="Francheska Patricia DG Pati Cruz"
+          loading="lazy">
+        <div class="content">
+          <div class="name">Francheska Patricia DG Pati Cruz</div>
+          <div class="greet">Happy Teacher's Day po, Sir! Thank you for being patient and for guiding our class.
+            Learning from you and with you has made every session filled with laughter and more interesting! We pray you
+            stay healthy and well po. ♡</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Sofia Fe Perez.jpg" alt="Sofia Fe Perez" loading="lazy">
+        <div class="content">
+          <div class="name">Sofia Fe Perez</div>
+          <div class="greet">Happy Teacher's day Sir, We are grateful to have a Parently Advicer like you. Thank you and
+            take care always</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/John Mickel Fulinara.jpg" alt="John Mickel Fulinara" loading="lazy">
+        <div class="content">
+          <div class="name">John Mickel Fulinara</div>
+          <div class="greet">Happy Teacher's day po sir, salamat sa pagiging strict at tumino po kami ni alvin john
+            aldaba, salamat din po at day by day ay nag iimprove ako sa programming subj dahil po sa pagtuturo mo po
+            nang maayos samin btw pinapasabi po ni alvin na sana ma adjust daw po yung recitation at activity kasi di pa
+            raw po nya kabisado yung color code, salamat po sir, more blessing to come and God bless 😊</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Joshua Manalad.jpg" alt="Joshua Manalad" loading="lazy">
+        <div class="content">
+          <div class="name">Joshua Manalad</div>
+          <div class="greet">Happy Teacher's Day po, to our beloved adviser, we thank you for being the second parent of
+            BSIS 2A, Thank you for teaching us a lessons, not only in your subjects, but in our life, on how to be
+            matured enough. We Love you po Sir Jaymart! AGAIN HAPPY TEACHER'S DAY PO!! 🎀</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Rustom Derio.jpg" alt="Rustom Derio" loading="lazy">
+        <div class="content">
+          <div class="name">Rustom Derio</div>
+          <div class="greet">"Happy Teacher's Day po Sir Jay! , Thankyou po for your effort ,guidance and being
+            supportive to us. THANKYOU PO :)”</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/blessyyyyyyy.jpg" alt="Blessy Cortez" loading="lazy">
+        <div class="content">
+          <div class="name">Blessy Cortez</div>
+          <div class="greet">Happy teacher’s day po sir, we’re so thankful po na ikaw naging adviser namin this year,
+            thankyou po sa laging pagtatanggol since 1st year, salamat po sir sa pagbiigay samin ng knowledge sana po di
+            ka masawa umunawa saming mga kufal, We love you po our prof,bestfriend,and tatay, HAPPY TEACHER’S DAY PO
+            ULIT!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Jemuel Barcenas.jpg" alt="Jemuel Barcenas" loading="lazy">
+        <div class="content">
+          <div class="name">Jemuel Barcenas</div>
+          <div class="greet">Happy teacher’s day po sir Jay thankyou so much for your dedication and for all that you do
+            to inspire and help us to learn.HAPPY TEACHER'S DAY</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Carlo Jhaye Dela Cruz.jpg" alt="Carlo Jhaye Dela Cruz" loading="lazy">
+        <div class="content">
+          <div class="name">Carlo Jhaye Dela Cruz</div>
+          <div class="greet">Happy Teachers’ Day PO, Sir Jaymart! 🎉 Thank you po sa patuloy n’yong pagtuturo at
+            paggabay sa’min — mula OOP noon hanggang DSA at DCN ngayon. Sobrang na-appreciate namin ‘yung effort at
+            dedication n’yo, Sir. Kahit mahirap minsan, nagiging madali dahil sa inyo. Salamat po sa inspirasyon at sa
+            lahat ng learnings! 💻🙏</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Marchan, Gerson.jpg" alt="Marchan, Gerson" loading="lazy">
+        <div class="content">
+          <div class="name">Gerson Marchan </div>
+          <div class="greet">Happy Teacher’s Day! Thank you for all you do. You make a difference every day</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Paul Steven Geronimo.jpg" alt="Paul Steven Geronimo" loading="lazy">
+        <div class="content">
+          <div class="name">Paul Steven Geronimo</div>
+          <div class="greet">Happy Teachers Day po sir Jaymart
+            Thank You po sa inyong efforts and guidance sa amin.
+            Wish ko po na magkaroon kayo ng magandang kalusugan at masaganang pamumuhay, Salamat po sir Jay!:))
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Redmark Sismundo.jpeg" alt="Redmark Sismundo" loading="lazy">
+        <div class="content">
+          <div class="name">Redmark Sismundo</div>
+          <div class="greet">Sir happy teachers day po thankyouuu po sa pakikisama, pagtuturo at pagmamahal sa amin sir
+            mahal na mahal ka po namin ng buong section thankyouuu din po sa pag guide sa amin sa pag tatangol HAHAHAH
+            sa pakikisama hindi lang bilang teacher namin kundi bilang kaibigan and i hope na mas marami pa kaming
+            matutunan at makasama ka pa po namin sa mga susunod pa
+
+            HAPPY TEACHERS DAY PO SIR^^</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/John Ericson Joson.jpg" alt="John Ericson Joson" loading="lazy">
+        <div class="content">
+          <div class="name">John Ericson Joson</div>
+          <div class="greet">Happy Teacher’s Day po sir! We thank you and appreciate you for the effort and dedication
+            in teaching us and others po! God’s blessing be upon you po, Thank you sir!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Ma Cassandra Ocampo.jpg" alt="Ma Cassandra Ocampo" loading="lazy">
+        <div class="content">
+          <div class="name">Ma Cassandra Ocampo</div>
+          <div class="greet">HAPPY TEACHER’S DAY, SIR JAYMART! Thank you for letting us to experience the high quality
+            of education in BPC! I hope you won’t forget our section, BSIS-2A. We’ll cherish every memories we had from
+            you and all the lessons you’ve given to us. Happy teacher’s day po ulit!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Armel Alejo.jpeg" alt="Armel Alejo" loading="lazy">
+        <div class="content">
+          <div class="name">Armel Alejo</div>
+          <div class="greet">Happy Teachers’ Day, Sir Jay!, Thank you for your patience, guidance, and for always
+            inspiring us to do our best. We appreciate all your hard work and dedication!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Kian Ashley Dagoy.png" alt="Kian Ashley Dagoy" loading="lazy">
+        <div class="content">
+          <div class="name">Kian Ashley Dagoy</div>
+          <div class="greet">Happy Teacher’s Day Sir Jay! Thank you for your guidance and patience po sa amin kahit puro
+            sila kalokohan 😀 You are a great mentor and we appreciate everything you do for us, maraming salamat po!
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img class="photo" src="./Images/Melissa Anne Dimagiba.jpg" alt="Melissa Anne Dimagiba" loading="lazy">
+        <div class="content">
+          <div class="name">Melissa Anne Dimagiba</div>
+          <div class="greet">Happy Teacher's Day po Sir Jaymart! Salamat po sa walang sawang paggabay, pagtuturo at
+            pagtiis sa aming kakulitan hahaha. Maraming salamat din po sa mga tawa na nagiging dahilan para maging
+            magaan ang pakiramdam ng bawat isa. Sana po sa araw ninyo ay maibalik namin ang ngiti at tawa na shineshare
+            nyo samin. Mabuhay ka po hanggat gusto nyo. Mahal po namin kayo. God bless you po</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Kyle Cyrus Obille.jpg" alt="Kyle Cyrus Obille" loading="lazy">
+        <div class="content">
+          <div class="name">Kyle Cyrus Obille</div>
+          <div class="greet">Happy Teachers day po Sir Jaymart! Thank you po sir sa walang sawang pagtuturo at pag guide
+            samin sa coding. Di mo po hinahayaang may naiiwan at kahit na puro minsan kalokohan ginagawa namin, sabay
+            sabay kaming lahat nakakatapos, Salamat po sa araw araw na gabay samin at sa hard work. Maraming salamat po
+            sirrr hephep horray</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="photo" src="./Images/Danah Angela Mabalot.jpg" alt="Danah Angela Mabalot" loading="lazy">
+        <div class="content">
+          <div class="name">Danah Angela Mabalot</div>
+          <div class="greet">Happy teachers’ day sayo sir. And congrats kase soon to be a father ka na sir. God bless
+            you and ipagpatuloy mo pa maging inspirasyon saming mga estudyante mo. Nawa’y lahat ng mga magagandang bagay
+            sa buhay ay makamit mo at patuloy ka pang pagpalain ng Diyos. Mahal ka naming mga studyante mo. And sana wag
+            ka na manggigisa sa first day :<</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Jayvee Marcelo.jpg" alt="Jayvee Marcelo" loading="lazy">
+          <div class="content">
+            <div class="name">Jayvee Marcelo</div>
+            <div class="greet">To Sir. jaymart maala First off all, kala namin napaka sungit o strikto mong teacher.
+              Pero di nag tagal. "Mabaet at palatawa" ka pala sir. Minsan den ng trip ng student. 😂Sana madame ka pa
+              maturuan, at lagi ka pong mag iingat. Happy teacher's day! Sir. Jaymart maala </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Justine Sambito.jpg" alt="Justine Sambito" loading="lazy">
+          <div class="content">
+            <div class="name">Justine Sambito</div>
+            <div class="greet">"Happy teacher's day Sir Jay, bilib po ako sa napakahaba po ninyong....pasensya at
+              napakalaking...puso sa pagtuturo sa amin. Maraming salamat sir!"</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Cholo Maclang.png" alt="Cholo Maclang" loading="lazy">
+          <div class="content">
+            <div class="name">Cholo Maclang</div>
+            <div class="greet">Happy Teacher's Day po Sir Jaymart! Salamat po sa pagiging pangalawang tatay sa'min, sa
+              pag suporta sa lahat ng bagay at sa pagmamahal bilang mga anak mo na rin!</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Alexandra Roch Garcia.png" alt="Alexandra Roch Garcia" loading="lazy">
+          <div class="content">
+            <div class="name">Alexandra Roch Garcia</div>
+            <div class="greet"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Denmark VIbal.jpg" alt="Denmark Vibal" loading="lazy">
+          <div class="content">
+            <div class="name">Denmark Vibal</div>
+            <div class="greet"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Francis Alvarez.jpg" alt="Francis Alvarez" loading="lazy">
+          <div class="content">
+            <div class="name">Alvarez Francis</div>
+            <div class="greet"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/John Benedict Cruz.jpeg" alt="John Benedict Cruz" loading="lazy">
+          <div class="content">
+            <div class="name">John Benedict Cruz</div>
+            <div class="greet">Happy Teachers day po Sir Jay! Thankyou po sa walang sawang pagtuturo and sana po hindi ka mag sawa mag pasensya saming mga laging late</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Mark Stiphen Marquez.png" alt="" loading="lazy">
+          <div class="content">
+            <div class="name">Mark Stiphene Marquez</div>
+            <div class="greet"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="photo" src="./Images/Ryan Macale.jpeg" alt="Ryan Macale" loading="lazy">
+          <div class="content">
+            <div class="name">Ryan Macale</div>
+            <div class="greet">I just want to thankyou po sir sa mga knowledge po na binabahagi mo samin and lalo narin po sa pagiging mabait na teacher/advicer ng BSIS 2A. Ikaw po ang laging nandyan sa tuwing may mga kaylangan ang BSIS 2A kaya naman po isa kang tunay na father figure para saamin. Sana po ay lagi kang maging ligtas and I wish you all the best po sir Jay. HAPPY TEACHERS DAY PO!!💖</div>
+          </div>
+        </div>
+
+      </div>
+
+      <script>
+        // Alphabetically sort cards by the .name
+        document.addEventListener('DOMContentLoaded', () => {
+          const grid = document.getElementById('studentsGrid');
+          if (!grid) return;
+
+          const cards = Array.from(grid.querySelectorAll('.card'));
+
+          cards.sort((a, b) => {
+            const aName = (a.querySelector('.name')?.textContent || '').trim();
+            const bName = (b.querySelector('.name')?.textContent || '').trim();
+
+            // put empty names at the end
+            if (!aName && bName) return 1;
+            if (aName && !bName) return -1;
+            return aName.localeCompare(bName, undefined, { sensitivity: 'base' });
+          });
+
+          // re-append in sorted order
+          cards.forEach(card => grid.appendChild(card));
+        });
+      </script>
+</body>
+
+</html>
